@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Link Manager — Pusat Inventarisasi Aplikasi &amp; Website</title>
+<link rel="preconnect" href="https://script.google.com">
+<link rel="preconnect" href="https://script.googleusercontent.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="toast-wrap"></div>
+
+<!-- ======================= HALAMAN LOGIN (PIN) ======================= -->
+<div id="view-login" class="login-wrap hidden">
+  <div class="login-card">
+    <div class="logo-mark">DL</div>
+    <h2 style="margin-bottom:4px;">Digital Link Manager</h2>
+    <p style="color:var(--text-secondary); font-size:13px; margin-top:4px;">Masukkan PIN pemilik untuk masuk</p>
+    <form id="form-login" style="margin-top:18px;">
+      <div class="field">
+        <input type="password" id="input-pin" class="pin-input" maxlength="8" inputmode="numeric" placeholder="••••••" autofocus>
+      </div>
+      <div id="login-error" class="field error" style="display:none;"></div>
+      <button type="submit" class="btn-primary" style="width:100%; justify-content:center;">Masuk</button>
+    </form>
+    <p style="font-size:11px; color:var(--text-secondary); margin-top:16px;">PIN dibuat otomatis saat setup backend dan tercatat sekali di log Apps Script.</p>
+  </div>
+</div>
+
+<!-- ======================= SHELL APLIKASI ======================= -->
+<div id="app-shell" class="hidden">
+  <nav class="navbar">
+    <div class="brand">
+      <div class="logo-mark">DL</div>
+      <div class="titles">
+        <div class="t1">DIGITAL LINK MANAGER</div>
+        <div class="t2">Pusat Inventarisasi Aplikasi &amp; Website</div>
+      </div>
+    </div>
+    <div class="nav-items" id="nav-items">
+      <button data-route="dashboard">Dashboard</button>
+      <button data-route="katalog">Katalog</button>
+      <button data-route="inventaris">Inventaris</button>
+      <button data-route="laporan">Laporan</button>
+      <button data-route="pengaturan">Pengaturan</button>
+    </div>
+    <div class="right">
+      <button class="theme-toggle" id="btn-theme" title="Ganti mode tampilan">🌙</button>
+      <div class="avatar">O</div>
+      <div class="user-meta">
+        <div class="name">Owner</div>
+        <div class="role">Personal</div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container page" id="page-root">
+    <!-- Konten setiap halaman dirender di sini oleh app.js -->
+  </main>
+</div>
+
+<!-- ======================= TEMPLATE: STAT CARD ======================= -->
+<template id="tpl-stat-card">
+  <div class="card stat-card">
+    <div class="top">
+      <div class="icon"></div>
+      <span class="delta hidden"></span>
+    </div>
+    <div class="value">0</div>
+    <div class="label">—</div>
+  </div>
+</template>
+
+<script src="js/config.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
